@@ -1,4 +1,5 @@
 extends State
+#default base state, 2d movement
 
 func process_physics(delta: float) -> State:
 	#basic 2d movement, multiply direction vector by speed

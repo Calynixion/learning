@@ -5,6 +5,8 @@ class_name StateMachine
 #needs children of type State
 #can use multiple for concurrent state loops
 
+
+
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
 @export var starting_state: State
