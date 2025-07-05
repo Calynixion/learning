@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://bmfobn6ibdro8"]
+[gd_scene load_steps=2 format=3 uid="uid://bmfobn6ibdro8"]
+
+[ext_resource type="PackedScene" uid="uid://cvcgb71igdmy" path="res://entities/players/classes/mage.tscn" id="2_7iyax"]
 
 [node name="main" type="Node2D"]
+
+[node name="mage" parent="." instance=ExtResource("2_7iyax")]
+position = Vector2(120, 72)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvcgb71igdmy"]
+
+[ext_resource type="Script" uid="uid://llvdplaefitu" path="res://entities/players/classes/mage.gd" id="1_rgdji"]
+[ext_resource type="Texture2D" uid="uid://ca44ooundjab1" path="res://icon.svg" id="2_i7yj3"]
+[ext_resource type="PackedScene" uid="uid://begpv7y53sw4n" path="res://common/state machines/state_machine.tscn" id="3_pwrgj"]
+[ext_resource type="Script" uid="uid://b3ssqbsnw3evd" path="res://entities/players/states/movement/default.gd" id="4_buaql"]
+[ext_resource type="Script" uid="uid://bi8lgmrpuc76e" path="res://entities/players/states/action/default.gd" id="5_wotd6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q051v"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp51p"]
+size = Vector2(16, 16)
+
+[node name="mage" type="CharacterBody2D" node_paths=PackedStringArray("movement_machine", "action_machine")]
+script = ExtResource("1_rgdji")
+speed = 6000.0
+max_health = 10
+class_id = "mage"
+movement_machine = NodePath("state_machines/movement")
+action_machine = NodePath("state_machines/action")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_i7yj3")
+
+[node name="terrain_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q051v")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="hitbox_shape" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("RectangleShape2D_tp51p")
+
+[node name="state_machines" type="Node" parent="."]
+
+[node name="movement" parent="state_machines" node_paths=PackedStringArray("starting_state") instance=ExtResource("3_pwrgj")]
+starting_state = NodePath("default")
+
+[node name="default" type="Node" parent="state_machines/movement"]
+script = ExtResource("4_buaql")
+
+[node name="action" parent="state_machines" node_paths=PackedStringArray("starting_state") instance=ExtResource("3_pwrgj")]
+starting_state = NodePath("default")
+
+[node name="default" type="Node" parent="state_machines/action"]
+script = ExtResource("5_wotd6")

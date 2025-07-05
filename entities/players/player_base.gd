@@ -6,12 +6,10 @@ extends CharacterBody2D
 #initial variables
 #because delta time, speed is in pixels- 
 # -per SECONDS, not per FRAME
-@export var speed:float = 6000
-@export var max_health:int = 10
+@export var speed:float
+@export var max_health:int
+@export var class_id:String
 var health:int
-
-#Plugin for class script
-@export var player_class:Script
 
 #state machine values
 @export var movement_machine:StateMachine
