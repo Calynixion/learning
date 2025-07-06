@@ -14,6 +14,7 @@ size = Vector2(16, 16)
 
 [node name="mage" type="CharacterBody2D" node_paths=PackedStringArray("movement_machine", "action_machine")]
 script = ExtResource("1_rgdji")
+max_mana = 50
 speed = 6000.0
 max_health = 10
 class_id = "mage"
