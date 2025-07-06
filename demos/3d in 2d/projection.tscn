@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://8dc7bc2v4ahd"]
+
+[ext_resource type="PackedScene" uid="uid://bkyll0mrxqoac" path="res://demos/3d in 2d/3d.tscn" id="1_tf8ri"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tf8ri"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0iymv"]
+viewport_path = NodePath("SubViewport")
+
+[node name="projection" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(-8.63583e-08, 0.987824)
+rotation = 3.14159
+scale = Vector2(180, 180)
+mesh = SubResource("QuadMesh_tf8ri")
+texture = SubResource("ViewportTexture_0iymv")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="3d" parent="SubViewport" instance=ExtResource("1_tf8ri")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

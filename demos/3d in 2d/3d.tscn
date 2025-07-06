@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkyll0mrxqoac"]
+
+[ext_resource type="Texture2D" uid="uid://yd8agthbhrva" path="res://entities/magic/sigil/sigil_2.png" id="1_2ypbx"]
+[ext_resource type="Script" uid="uid://bte8djbq0lnh6" path="res://demos/3d in 2d/3d.gd" id="1_een6b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_een6b"]
+transparency = 1
+albedo_texture = ExtResource("1_2ypbx")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_gu5ax"]
+resource_local_to_scene = true
+
+[node name="3d" type="Node3D"]
+script = ExtResource("1_een6b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.394)
+
+[node name="pivot" type="Node3D" parent="."]
+transform = Transform3D(0.684458, 0, 0.729052, 0, 1, 0, -0.729052, 0, 0.684458, 0, 0, -0.224647)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.828189)
+material_override = SubResource("StandardMaterial3D_een6b")
+mesh = SubResource("QuadMesh_gu5ax")
+skeleton = NodePath("../..")
