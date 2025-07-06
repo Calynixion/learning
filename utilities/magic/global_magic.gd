@@ -8,7 +8,7 @@ const sigil = preload("res://entities/magic/sigil/sigil.tscn")
 #functions
 
 #sigil maker function
-func make_sigil(parent:Node)->void:
+func cast_sigil(parent:Node)->void:
 	var new_sigil = sigil.instantiate()
 	new_sigil.parent = parent
 	parent.add_child(new_sigil)

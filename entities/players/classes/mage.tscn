@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvcgb71igdmy"]
+[gd_scene load_steps=10 format=3 uid="uid://cvcgb71igdmy"]
 
 [ext_resource type="Script" uid="uid://llvdplaefitu" path="res://entities/players/classes/mage.gd" id="1_rgdji"]
 [ext_resource type="Texture2D" uid="uid://ca44ooundjab1" path="res://icon.svg" id="2_i7yj3"]
 [ext_resource type="PackedScene" uid="uid://begpv7y53sw4n" path="res://common/state machines/state_machine.tscn" id="3_pwrgj"]
 [ext_resource type="Script" uid="uid://b3ssqbsnw3evd" path="res://entities/players/states/movement/default.gd" id="4_buaql"]
 [ext_resource type="Script" uid="uid://bi8lgmrpuc76e" path="res://entities/players/states/action/default.gd" id="5_wotd6"]
+[ext_resource type="Script" uid="uid://cfwttsqs5t3ak" path="res://entities/players/states/action/mage/cast_sigil.gd" id="6_i7yj3"]
+[ext_resource type="Script" uid="uid://d0ng2kqdgupq0" path="res://entities/players/states/action/mage/cast_spell.gd" id="7_pwrgj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q051v"]
 radius = 8.0
@@ -44,5 +46,20 @@ script = ExtResource("4_buaql")
 [node name="action" parent="state_machines" node_paths=PackedStringArray("starting_state") instance=ExtResource("3_pwrgj")]
 starting_state = NodePath("default")
 
-[node name="default" type="Node" parent="state_machines/action"]
+[node name="default" type="Node" parent="state_machines/action" node_paths=PackedStringArray("cast_sigil_state", "cast_spell_state")]
 script = ExtResource("5_wotd6")
+cast_sigil_state = NodePath("../cast_sigil")
+cast_spell_state = NodePath("../cast_spell")
+
+[node name="cast_sigil" type="Node" parent="state_machines/action" node_paths=PackedStringArray("default_state", "cast_timer")]
+script = ExtResource("6_i7yj3")
+default_state = NodePath("../default")
+cast_timer = NodePath("../../../sigil_cast_time")
+
+[node name="cast_spell" type="Node" parent="state_machines/action" node_paths=PackedStringArray("default_state")]
+script = ExtResource("7_pwrgj")
+default_state = NodePath("../default")
+
+[node name="sigil_cast_time" type="Timer" parent="."]
+
+[connection signal="timeout" from="sigil_cast_time" to="state_machines/action/cast_sigil" method="_on_sigil_cast_time_timeout"]
