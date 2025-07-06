@@ -8,9 +8,9 @@ class_name Sigil
 
 #sigil type:minimum, continuious
 
-var parent:Node
+@export var parent:Node
 #sigil mana
-var mana:int = 0
+@export var mana:int = 0
 
 func _ready():
 	if parent!=null:
