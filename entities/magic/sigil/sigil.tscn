@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3rdhljfey4h4"]
+[gd_scene load_steps=3 format=3 uid="uid://b3rdhljfey4h4"]
 
-[ext_resource type="Script" uid="uid://2046o4y4s023" path="res://entities/magic/sigil/sigil.gd" id="1_0nfl7"]
 [ext_resource type="Texture2D" uid="uid://yd8agthbhrva" path="res://entities/magic/sigil/sigil_2.png" id="1_ornb2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2p1sd"]
 radius = 16.0
 
 [node name="sigil" type="Area2D"]
-script = ExtResource("1_0nfl7")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
