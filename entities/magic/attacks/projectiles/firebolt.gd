@@ -1,4 +1,4 @@
-extends Area2D
+extends MagicConstruct
 
 #firebolt projectile
 var parent:Node
