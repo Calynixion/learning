@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://blr3xip2ymlu4"]
+
+[ext_resource type="Texture2D" uid="uid://yd8agthbhrva" path="res://entities/magic/sigil/sigil_2.png" id="1_yypjd"]
+[ext_resource type="PackedScene" uid="uid://fugpyy6rjcjl" path="res://entities/ui/magic/spells/spell_point.tscn" id="2_bmsdn"]
+
+[node name="spell_draw" type="Control"]
+self_modulate = Color(1, 1, 1, 0.145098)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 96)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_yypjd")
+
+[node name="spell_point5" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 160.0
+offset_top = 64.0
+offset_right = -160.0
+offset_bottom = -116.0
+
+[node name="spell_point4" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 96.0
+offset_right = -128.0
+offset_bottom = -84.0
+
+[node name="spell_point8" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 136.0
+offset_top = 72.0
+offset_right = -184.0
+offset_bottom = -108.0
+
+[node name="spell_point7" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 184.0
+offset_top = 72.0
+offset_right = -136.0
+offset_bottom = -108.0
+
+[node name="spell_point6" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 184.0
+offset_top = 120.0
+offset_right = -136.0
+offset_bottom = -60.0
+
+[node name="spell_point3" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 136.0
+offset_top = 120.0
+offset_right = -184.0
+offset_bottom = -60.0
+
+[node name="spell_point2" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 160.0
+offset_top = 128.0
+offset_right = -160.0
+offset_bottom = -52.0
+
+[node name="spell_point" parent="." instance=ExtResource("2_bmsdn")]
+layout_mode = 1
+offset_left = 128.0
+offset_top = 96.0
+offset_right = -192.0
+offset_bottom = -84.0

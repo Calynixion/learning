@@ -15,5 +15,10 @@ func cast_sigil(parent:Node)->void:
 
 #spell caster
 func cast_spell(spell:String,parent:Node,direction:Vector2,speed:float)->void:
-	var spell_func:Callable = GlobalSpells.get_spell(spell)
+	#var spell_func:Callable = GlobalSpells.get_spell(spell)
+	var spell_func:Callable = GlobalSpells.get_spell(spell,"function")
 	spell_func.call(parent,direction,speed)
+
+#spell logic
+func check_spell_ready():
+	pass

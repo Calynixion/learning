@@ -10,9 +10,20 @@ radius = 16.0
 script = ExtResource("1_0nfl7")
 metadata/_edit_group_ = true
 
+[node name="indicator" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.52588e-06, -1.52588e-06)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_ornb2")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_ornb2")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2p1sd")
+
+[node name="debug" type="RichTextLabel" parent="."]
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 56.0

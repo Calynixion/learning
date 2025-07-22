@@ -16,7 +16,7 @@ size = Vector2(16, 16)
 
 [node name="mage" type="CharacterBody2D" node_paths=PackedStringArray("movement_machine", "action_machine")]
 script = ExtResource("1_rgdji")
-max_mana = 50
+max_mana = 100000000
 speed = 6000.0
 max_health = 10
 class_id = "mage"
@@ -61,5 +61,9 @@ script = ExtResource("7_pwrgj")
 default_state = NodePath("../default")
 
 [node name="sigil_cast_time" type="Timer" parent="."]
+
+[node name="debug" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="sigil_cast_time" to="state_machines/action/cast_sigil" method="_on_sigil_cast_time_timeout"]

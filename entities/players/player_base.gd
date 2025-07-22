@@ -16,6 +16,7 @@ var health:int
 @export var action_machine:StateMachine
 
 func _ready() -> void:
+	#self.set_process_unhandled_input(true)
 	#give player full health on entry
 	health=max_health
 	#initialize state machine and pass self to reference

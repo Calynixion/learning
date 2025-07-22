@@ -6,16 +6,30 @@ class_name Sigil
 # casting implements that can be 
 # manipulated in space
 
-#sigil type:minimum, continuious
+@onready var debug:RichTextLabel=$debug
+
+#projectile sigil type: auto, semi, burst, beam 
+
 
 @export var parent:Node
 #sigil mana
 @export var mana:int = 0
 
-func _ready():
-	if parent!=null:
-		parent.pass_mana.connect(recieve_mana)
-	pass
+var selected:bool=false
+@onready var indicator:Sprite2D=$indicator
 
+func _ready():
+	indicator.visible=false
+
+func _process(delta: float) -> void:
+	if mana>=100:
+		mana-=100
+		GlobalMagic.cast_spell("firebolt",parent,Vector2(1,0),100)
+	debug.text=str(mana)
+	if selected==true:
+		indicator.visible=true
+	else:
+		indicator.visible=false
+	
 func recieve_mana(amount:int):
 	mana+=amount

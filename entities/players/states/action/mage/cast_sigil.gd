@@ -10,6 +10,7 @@ var cast_complete:bool = false
 
 func enter():
 	cast_timer.start(2)
+	cast_timer.one_shot=true
 	cast_complete = false
 
 func process_physics(delta:float)->State:

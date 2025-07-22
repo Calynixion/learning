@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://fugpyy6rjcjl"]
+
+[ext_resource type="Texture2D" uid="uid://dl2uypfgakt86" path="res://entities/magic/sigil/sigil.png" id="1_au8ao"]
+
+[node name="spell_point" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.016, 0.016)
+texture = ExtResource("1_au8ao")
